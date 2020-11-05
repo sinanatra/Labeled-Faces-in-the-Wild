@@ -41,6 +41,6 @@ function cluster(data) {
             let cleanPath = d.image.split('_');
             cleanPath.pop()
             cleanPath = cleanPath.toString().replace(/,/g, '_')
-            return 'http://vis-www.cs.umass.edu/lfw/images/' + cleanPath + '/' + d.image
+            return 'https://corsair-service.herokuapp.com/http://vis-www.cs.umass.edu/lfw/images/' + cleanPath + '/' + d.image
         });
 }
