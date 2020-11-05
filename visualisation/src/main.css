@@ -1,0 +1,17 @@
+body {
+    font-family: "Helvetica", sans-serif;
+    font-size: 28px;
+    background-color: white;
+    color: black;
+    margin: 10px;
+    padding: 0;
+    text-rendering: optimizeLegibility;
+    max-width: 1024px;
+}
+
+h1,
+h2,
+h3,
+p {
+    font-weight: 400;
+}
