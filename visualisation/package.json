@@ -12,8 +12,8 @@
     "jquery": "^3.5.1"
   },
   "scripts": {
-    "watch": "webpack-dev-server --mode development --watch",
-    "build": "webpack --mode production"
+    "watch": "NODE_OPTIONS=--openssl-legacy-provider webpack-dev-server --mode development --watch",
+    "build": "NODE_OPTIONS=--openssl-legacy-provider webpack --mode production"
   },
   "devDependencies": {
     "clean-webpack-plugin": "^3.0.0",
