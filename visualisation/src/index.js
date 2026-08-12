@@ -4,14 +4,15 @@ const d3 = require('d3');
 import * as d3Collection from 'd3-collection';
 
 const data = d3.csv('./src/assets/dataset_2.csv');
+const images = d3.json('./src/assets/images.json');
 
 (async () => {
-    let datum = await data;
-    cluster(datum)
+    let [datum, imageMap] = await Promise.all([data, images]);
+    cluster(datum, imageMap)
 })();
 
 
-function cluster(data) {
+function cluster(data, imageMap) {
     data = data.filter(d => d.person != "");
 
     let nestedData = d3Collection.nest()
@@ -38,9 +39,6 @@ function cluster(data) {
         .attr('height', 44)
         .attr('background','red')
         .attr('src', function (d) {
-            let cleanPath = d.image.split('_');
-            cleanPath.pop()
-            cleanPath = cleanPath.toString().replace(/,/g, '_')
-            return 'https://vis-www.cs.umass.edu/lfw/images/' + cleanPath + '/' + d.image
+            return imageMap[d.image];
         });
 }
